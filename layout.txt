@@ -11,7 +11,7 @@
         <RowDefinition Height="Auto"/>  <!-- Buttons -->
     </Grid.RowDefinitions>
 
-    <!-- Logo Frame (100% width) -->
+    <!-- Logo Full Width -->
     <Border Grid.Row="0" Background="White">
         <Image x:Name="ImageLabel" Height="100" Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
     </Border>
@@ -38,17 +38,22 @@
     <TextBlock Grid.Row="4" x:Name="consentLabel" Margin="20,5,20,5"
                TextWrapping="Wrap" FontSize="12" Foreground="Gray" />
 
-    <!-- Buttons -->
+    <!-- Buttons: Left & Right -->
     <Grid Grid.Row="5" Margin="20,10,20,10">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
+        <!-- Cancel (left-aligned) -->
         <Button x:Name="CancelBtn" Content="Cancel" Width="100" Height="35"
                 HorizontalAlignment="Left" Grid.Column="0"/>
 
+        <!-- Spacer in the middle (empty ColumnDefinition) -->
+
+        <!-- Next (right-aligned) -->
         <Button x:Name="NextBtn" Content="Next" Width="100" Height="35"
-                HorizontalAlignment="Right" Grid.Column="1"/>
+                HorizontalAlignment="Right" Grid.Column="2"/>
     </Grid>
 </Grid>
