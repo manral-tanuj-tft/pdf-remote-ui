@@ -1,6 +1,6 @@
 <Grid xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      Margin="20">
+      Margin="0">
 
     <Grid.RowDefinitions>
         <RowDefinition Height="Auto"/>  <!-- Image -->
@@ -11,17 +11,19 @@
         <RowDefinition Height="Auto"/>  <!-- Buttons -->
     </Grid.RowDefinitions>
 
-    <!-- Logo Frame -->
-    <Image x:Name="ImageLabel" Grid.Row="0" Height="100" Stretch="Fill" HorizontalAlignment="Stretch"/>
+    <!-- Logo Frame (100% width) -->
+    <Border Grid.Row="0" Background="White">
+        <Image x:Name="ImageLabel" Height="100" Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
+    </Border>
 
     <!-- Description -->
     <TextBlock Grid.Row="1" x:Name="descriptionLabel"
                FontSize="13" TextWrapping="Wrap"
-               Margin="0,0,0,10" />
+               Margin="20,10,20,10" />
 
     <!-- Heading -->
     <TextBlock Grid.Row="2" FontWeight="Bold" FontSize="13"
-               Text="End User License Agreement" Margin="0,0,0,5"/>
+               Text="End User License Agreement" Margin="20,0,20,5"/>
 
     <!-- EULA -->
     <RichTextBox Grid.Row="3" x:Name="ulaTextBox" 
@@ -30,15 +32,23 @@
                  Height="180"
                  BorderThickness="1"
                  BorderBrush="LightGray"
-                 Margin="0,0,0,10"/>
+                 Margin="20,0,20,10"/>
 
     <!-- Consent -->
-    <TextBlock Grid.Row="4" x:Name="consentLabel" Margin="0,5,0,5"
+    <TextBlock Grid.Row="4" x:Name="consentLabel" Margin="20,5,20,5"
                TextWrapping="Wrap" FontSize="12" Foreground="Gray" />
 
     <!-- Buttons -->
-    <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0" >
-        <Button x:Name="CancelBtn" Content="Cancel" Width="100" Height="35" Margin="10,0"/>
-        <Button x:Name="NextBtn" Content="Next" Width="100" Height="35" Margin="10,0"/>
-    </StackPanel>
+    <Grid Grid.Row="5" Margin="20,10,20,10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="CancelBtn" Content="Cancel" Width="100" Height="35"
+                HorizontalAlignment="Left" Grid.Column="0"/>
+
+        <Button x:Name="NextBtn" Content="Next" Width="100" Height="35"
+                HorizontalAlignment="Right" Grid.Column="1"/>
+    </Grid>
 </Grid>
